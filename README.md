@@ -1,8 +1,8 @@
 # vibe-check
 
-DC for your codebase. Catches the bugs that end seasons.
+Security scanner for agentic engineering.
 
-You vibe code fast. This watches your back. Zero dependencies, runs in seconds, only flags the stuff that actually matters — leaked secrets, SQL injection, XSS, missing auth, broken SSL.
+You code fast. This watches your back. Zero dependencies, runs in seconds, only flags what actually matters — leaked secrets, SQL injection, XSS, missing auth, broken SSL.
 
 ## Install
 
@@ -19,16 +19,19 @@ npm install -g vibe-check
 ## Usage
 
 ```bash
-# Check current directory
+# Scan changed files (git-aware, default)
 vibe-check
 
-# Check a specific project
-vibe-check ./my-app
+# Scan entire codebase
+vibe-check --all
 
-# Verbose mode (shows matching code)
+# Scan a specific directory
+vibe-check ./src
+
+# Show matching code
 vibe-check --verbose
 
-# JSON output (for CI)
+# JSON output for CI
 vibe-check --json
 ```
 
@@ -36,7 +39,8 @@ vibe-check --json
 
 ```
   🏈 vibe-check
-  DC for your codebase.
+
+  3 files · 0.1s · changed files only
 
   🚨 2 CRITICAL
 
@@ -62,7 +66,13 @@ vibe-check --json
   ❌ Fix critical issues before shipping.
 ```
 
-Exits with code 1 on critical findings — drop it in CI and it blocks the deploy.
+Exits with code 1 on critical findings. Drop it in CI and it blocks the deploy.
+
+## How it works
+
+By default, vibe-check only scans files you've changed — staged, unstaged, and untracked. You care about what you just wrote, not last week's code. Use `--all` to scan everything.
+
+Skips `node_modules`, `.git`, minified files, binaries, and anything over 512KB. Runs 22 rules against every line. One finding per rule per file to keep output clean.
 
 ## What it checks
 
@@ -76,12 +86,8 @@ Exits with code 1 on critical findings — drop it in CI and it blocks the deplo
 
 ```yaml
 - name: vibe-check
-  run: npx vibe-check
+  run: npx vibe-check --all
 ```
-
-## Philosophy
-
-Most linters check everything. vibe-check only checks what can ruin your day. It's not trying to enforce style or catch typos. It's the defensive coordinator — it only speaks up before the backbreaking play.
 
 ## License
 
