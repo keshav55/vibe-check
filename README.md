@@ -7,13 +7,13 @@ You code fast. This watches your back. Zero dependencies, runs in seconds, only 
 ## Install
 
 ```bash
-npx vibe-check
+npx @atrislabs/vibe-check
 ```
 
 Or install globally:
 
 ```bash
-npm install -g vibe-check
+npm install -g @atrislabs/vibe-check
 ```
 
 ## Usage
@@ -86,7 +86,7 @@ Skips `node_modules`, `.git`, minified files, binaries, and anything over 512KB.
 
 ```yaml
 - name: vibe-check
-  run: npx vibe-check --all
+  run: npx @atrislabs/vibe-check --all
 ```
 
 ## License
