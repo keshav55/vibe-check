@@ -1,0 +1,19 @@
+{
+  "name": "vibe-check",
+  "version": "1.0.0",
+  "description": "DC for your codebase. Catches the bugs that end seasons.",
+  "main": "index.js",
+  "bin": {
+    "vibe-check": "./bin/vibe-check.js"
+  },
+  "scripts": {
+    "test": "node bin/vibe-check.js test-fixtures"
+  },
+  "keywords": ["security", "linter", "vibe-coding", "secrets", "scanner"],
+  "author": "Keshav Rao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshav55/vibe-check.git"
+  }
+}
