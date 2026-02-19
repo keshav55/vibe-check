@@ -1,7 +1,7 @@
 {
-  "name": "vibe-check",
+  "name": "@atrislabs/vibe-check",
   "version": "1.0.0",
-  "description": "DC for your codebase. Catches the bugs that end seasons.",
+  "description": "Security scanner for agentic engineering.",
   "main": "index.js",
   "bin": {
     "vibe-check": "./bin/vibe-check.js"
